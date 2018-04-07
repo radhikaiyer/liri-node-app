@@ -121,20 +121,7 @@ function getMovie() {
       }
     });
   } else {
-    // Store all of the arguments in an array
-    var nodeArgs = process.argv;
-    // Create an empty variable for holding the movie name
-    var movieName = "";
-    // Loop through all the words in the node argument
-    for (var i = 3; i < nodeArgs.length; i++) {
-      if (i > 3 && i < nodeArgs.length) {
-        movieName = movieName + "+" + nodeArgs[i];
-      }
-      else {
-        movieName += nodeArgs[i];
-      }
-    }
-    // Then run a request to the OMDB API with the movie specified
+    var movieName = process.argv[3]
     var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
     request(queryUrl, function(error, response, body) {
       // If the request is successful
